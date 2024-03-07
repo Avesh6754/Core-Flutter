@@ -10,17 +10,17 @@ void main()
   int sum=0;
   switch(c)
   {
-    case '+': print(sum=x+y );
+    case "+":print("$x + $y = ${x+y} ");
     break;
-    case '-':print(sum=x-y);
+    case "-":print("$x - $y = ${x-y} ");
     break;
-    case '*':print( sum=x*y);
+    case "*":print("$x * $y = ${x*y} ");
     break;
-    case '/':print(sum=x/y);
+    case "/":print("$x / $y = ${x/y} ");
     break;
-    case '%': print(sum=x%y);
+    case "%":print("$x % $y = ${x%y} ");
     break;
-    default:print("Please enter valid input : ");
+    default:print("Please enter valid input :");
 
   }
 
