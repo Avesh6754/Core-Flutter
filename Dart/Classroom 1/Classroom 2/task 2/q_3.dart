@@ -6,6 +6,9 @@ void main()
   int x=int.parse(stdin.readLineSync()!);
   for(int i=1;i<=x;i++)
   {
-    print(i);
+    if(i%2==1)
+    {
+        print(i);
+    }
   }
 }

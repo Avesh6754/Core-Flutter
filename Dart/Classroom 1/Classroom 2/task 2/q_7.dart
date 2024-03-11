@@ -4,8 +4,16 @@ void main()
 {
   print("Enter the value of x : ");
   int x=int.parse(stdin.readLineSync()!);
-  for(int i=1;i<=x;i++)
+  int c=0,a;
+
+  while(x>0)
   {
-    print(i);
+  
+    x~/=10;
+    c++;
+    x--;
+
   }
+  print(c);
+
 }

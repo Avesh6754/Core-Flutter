@@ -4,8 +4,11 @@ void main()
 {
   print("Enter the value of x : ");
   int x=int.parse(stdin.readLineSync()!);
-  for(int i=1;i<=x;i++)
+  int sum=1;
+
+  for(int i=1;i<=10;i++)
   {
-    print(i);
+    print("$x * $i =${x*i}");
   }
+
 }

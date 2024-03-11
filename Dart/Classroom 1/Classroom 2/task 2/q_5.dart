@@ -4,8 +4,11 @@ void main()
 {
   print("Enter the value of x : ");
   int x=int.parse(stdin.readLineSync()!);
-  for(int i=1;i<=x;i++)
+  int sum=1;
+
+  for(int i=x;i>0;i--)
   {
-    print(i);
+    sum=sum*i;
   }
+  print(sum);
 }
