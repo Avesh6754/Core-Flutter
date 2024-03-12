@@ -14,7 +14,7 @@ class Unique
     Name=stdin.readLineSync()!;
  
     stdout.write("\nRemove all space : \n");
-    stdout.write("${Name.replaceAll(' ', ' ')}");
+    stdout.write("${Name.replaceAll(' ', '')}");
 
   }
  
