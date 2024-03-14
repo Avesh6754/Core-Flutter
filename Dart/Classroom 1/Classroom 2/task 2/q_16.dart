@@ -35,7 +35,7 @@ main()
   
   for(int j=0;j<r;j++)
   {
-    temp=l2[x-2];
+    temp=l2[x-1];
   for(int i=x-1;i>=1;i--)
   {
     l2[i]=l2[i-1];
