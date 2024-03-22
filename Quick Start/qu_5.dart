@@ -4,16 +4,16 @@ void main()
 {
    List l1=[];
   stdout.write("Entre the size of n : ");
-  int n= int.parse(stdin.readLineSync()!);
+  int x= int.parse(stdin.readLineSync()!);
   int num;
-  for(int i=0;i<n;i++)
+  for(int i=0;i<x;i++)
   {
     l1.add([]);
 
   }
-  for(int i=0; i<n; i++)
+  for(int i=0; i<x; i++)
   {
-    for(int j=0; j<n; j++)
+    for(int j=0; j<x; j++)
     {
       stdout.write("Entre the array :l1[$i] [$j] ");
        num=int.parse(stdin.readLineSync()!);
@@ -21,16 +21,16 @@ void main()
     }
 
   }
-  for(int i=0;i<n;i++)
+  for(int i=0;i<x;i++)
   {
-    for(int j=0;j<n;j++)
+    for(int j=0;j<x;j++)
     {
         stdout.write("${l1[i][j]} ");
     }
     print("  ");
   }
-  
-  int x;
+  int n = l1.length
+  int c ;
   do
   {
 
@@ -41,8 +41,8 @@ void main()
     stdout.write("Enter 5 Sum_of_Antidiagonal_Element : \n");
     stdout.write("Enter 0 for exit : \n");
     stdout.write("Entre you choice \n");
-    x= int.parse(stdin.readLineSync()!);
-  switch(x)
+    c= int.parse(stdin.readLineSync()!);
+  switch(c)
   {
     case 1:SumofAllElement(l1,n);
     break;
@@ -56,7 +56,7 @@ void main()
     break;
     default:stdout.write("Enter valid input from 1 to 5 and 0 for exit \n");
   }
-  }while(x!=0);
+  }while(c!=0);
 
 }
 
@@ -75,31 +75,33 @@ void SumofAllElement(List l1,int n)
 }
 void SumofSpecifiRow(List l1,int n)
 {
-  stdout.write("\nEnter the number of row : ");
-  int row=int.parse(stdin.readLineSync()!);
+  
   int sum=0;
   for(int i=0;i<n;i++)
   {
+    sum =0;
     for(int j=0;j<n;j++)
     {
-        sum=sum + l1[row][j];
+        sum=sum + l1[i][j];
     }
+    stdout.write("\nsum of Row ${i+1} $sum\n");
   }
-  stdout.write("\nsum of Row ${row} $sum\n");
+  
 }
 void SumofSpecificColum(List l1,int n)
 {
-  stdout.write("\nEnter the number of colum : ");
-  int colum=int.parse(stdin.readLineSync()!);
+
   int sum=0;
   for(int i=0;i<n;i++)
   {
+    sum=0;
     for(int j=0;j<n;j++)
     {
-        sum=sum + l1[i][colum];
+        sum=sum + l1[j][i];
     }
+    stdout.write("\nsum of Row ${i+1} $sum\n");
   }
-  stdout.write("\nSum of colum ${colum} $sum\n");
+  
 }
 void SumofDiagonalElement(List l1,int n)
 {
@@ -115,7 +117,7 @@ void SumofDiagonalElement(List l1,int n)
       }
     }
   }
-  stdout.write("\nSum od diagonal : $sum");
+  stdout.write("\nSum of diagonal : $sum");
 }
 void SumofAntidiagonalElement(List l1,int n)
 {
@@ -130,8 +132,7 @@ void SumofAntidiagonalElement(List l1,int n)
     
     }
   }
-  stdout.write("\nSum od diagonal : $sum");
+  stdout.write("\nSum of diagonal : $sum");
 }
-
 
 
