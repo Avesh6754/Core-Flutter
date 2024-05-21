@@ -6,9 +6,10 @@ void main() {
   int sum = 0, i = -1, j = 1;
 
   while (i < n) {
+    print(i);
     sum = i + j;
     i = j;
     j = sum;
-    print(j);
+    
   }
 }
