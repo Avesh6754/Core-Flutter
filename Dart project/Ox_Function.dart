@@ -1,8 +1,10 @@
 import 'dart:io';
-void Print(List l1,int check)
+void Print(List l1,int check,int count)
 {
+    print("Total Count : $count");
     int Winner=0;
     String Start;
+    bool result=false;
     print("");
     print("${l1[0]} | ${l1[1]} | ${l1[2]}");
     stdout.write("----------\n");
@@ -11,35 +13,39 @@ void Print(List l1,int check)
     print("${l1[6]} | ${l1[7]} | ${l1[8]}");
     if((l1[0]=="X" && l1[1]=="X" && l1[2]=="X") || (l1[3]=="X" && l1[4]=="X" && l1[5]=="X")||(l1[6]=="X" && l1[7]=="X" && l1[8]=="X")||(l1[0]=="X" && l1[3]=="X" && l1[6]=="X")||(l1[1]=="X" && l1[4]=="X" && l1[7]=="X")||(l1[2]=="X" && l1[5]=="X" && l1[8]=="X")||(l1[0]=="X" && l1[4]=="X" && l1[8]=="X")||(l1[2]=="X" && l1[4]=="X" && l1[6]=="X"))
     {
+        result=true;
         Winner++;
         print("X is Winner :$Winner ");
     }
     else if((l1[0]=="O" && l1[1]=="O" && l1[2]=="O") || (l1[3]=="O" && l1[4]=="O" && l1[5]=="O")||(l1[6]=="O" && l1[7]=="O" && l1[8]=="O")||(l1[0]=="O" && l1[3]=="O" && l1[6]=="O")||(l1[1]=="O" && l1[4]=="O" && l1[7]=="O")||(l1[2]=="O" && l1[5]=="O" && l1[8]=="O")||(l1[0]=="O" && l1[4]=="O" && l1[8]=="O")||(l1[2]=="O" && l1[4]=="O" && l1[6]=="O"))
     {
+      result=true;
       Winner++;
       print("O is Winner :$Winner ");
     }
     else 
     {
      if(check==0)
-      {
-        ConditionX(l1, check);
-      }
-      else if(check==1)
-      {
-        ConditionO(l1, check);
-      }
-      else 
-      {
-        print("Invalid input : ");
-      }
+    {
+       ConditionX(l1, check,count);
     }
-
+    else if(check==1)
+    {
+        ConditionO(l1, check,count);
+    }
+    }
 }
-void ConditionX(List l1,int check)
+void ConditionX(List l1,int check,int count)
 {
-  stdout.write("Enter the Your Choice X : ");
-  int P1=int.parse(stdin.readLineSync()!);
+  count++;
+  if(count==10)
+  {
+    print("Match tie : ");
+  }
+  else
+  {
+    stdout.write("Enter the Your Choice X : ");
+    int P1=int.parse(stdin.readLineSync()!);
       if(P1==1)
         {
           if(l1[0]!="X" && l1[0]!="O")
@@ -47,12 +53,12 @@ void ConditionX(List l1,int check)
             l1.removeAt(0);
             l1.insert(0,"X");
             check=1;
-            Print(l1,check);
+            Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionX(l1, check);
+            ConditionX(l1, check,count);
           }
           }
         else if(P1==2)
@@ -62,13 +68,13 @@ void ConditionX(List l1,int check)
             l1.removeAt(1);
             l1.insert(1,"X");
             check=1;
-            Print(l1,check);
+            Print(l1, check,count);
             
           }
           else
           {
             print("You already add : ");
-            ConditionX(l1, check);
+            ConditionX(l1, check,count);
           }
         }
         else if(P1==3)
@@ -78,12 +84,12 @@ void ConditionX(List l1,int check)
             l1.removeAt(2);
             l1.insert(2,"X");
             check=1;
-            Print(l1,check);
+            Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionX(l1, check);
+            ConditionX(l1, check,count);
           }
         }
         else if(P1==4)
@@ -93,12 +99,12 @@ void ConditionX(List l1,int check)
             l1.removeAt(3);
             l1.insert(3,"X");
             check=1;
-            Print(l1,check);
+            Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionX(l1, check);
+            ConditionX(l1, check,count);
           }
         }
         else if(P1==5)
@@ -108,12 +114,12 @@ void ConditionX(List l1,int check)
             l1.removeAt(4);
             l1.insert(4,"X");
             check=1;
-            Print(l1,check);
+            Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionX(l1, check);
+            ConditionX(l1, check,count);
           }
         }
         else if(P1==6)
@@ -123,12 +129,12 @@ void ConditionX(List l1,int check)
             l1.removeAt(5);
             l1.insert(5,"X");
             check=1;
-            Print(l1,check);
+            Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionX(l1, check);
+            ConditionX(l1, check,count);
           }
         }
         else if(P1==7)
@@ -138,12 +144,12 @@ void ConditionX(List l1,int check)
             l1.removeAt(6);
             l1.insert(6,"X");
             check=1;
-            Print(l1,check);
+            Print(l1, check,count);
            }
           else
           {
             print("You already add : ");
-            ConditionX(l1, check);
+            ConditionX(l1, check,count);
           }
         }
         else if(P1==8)
@@ -153,12 +159,12 @@ void ConditionX(List l1,int check)
             l1.removeAt(7);
             l1.insert(7,"X");
             check=1;
-            Print(l1,check);
+           Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionX(l1, check);
+            ConditionX(l1, check,count);
           }
         }
         else if(P1==9)
@@ -168,18 +174,26 @@ void ConditionX(List l1,int check)
             l1.removeAt(8);
             l1.insert(8,"X");
             check=1;
-            Print(l1,check);
+            Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionX(l1, check);
+            ConditionX(l1, check,count);
           }
         }
+  }
 }
-void ConditionO(List l1,int check)
+void ConditionO(List l1,int check,int count)
 {
-  stdout.write("Enter the Your Choice O : ");
+  count++;
+  if(count==10)
+  {
+    print("Match Tie : ");
+  }
+  else
+  {
+    stdout.write("Enter the Your Choice O : ");
   int P1=int.parse(stdin.readLineSync()!);
     if(P1==1)
         {
@@ -188,12 +202,12 @@ void ConditionO(List l1,int check)
             l1.removeAt(0);
             l1.insert(0,"O");
             check=0;
-            Print(l1,check);
+            Print(l1, check,count);
            }
           else
           {
             print("You already add : ");
-            ConditionO(l1, check);
+            ConditionO(l1, check,count);
           }
 
         }
@@ -204,12 +218,12 @@ void ConditionO(List l1,int check)
             l1.removeAt(1);
             l1.insert(1,"O");
             check=0;
-            Print(l1,check);
+            Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionO(l1, check);
+            ConditionO(l1, check,count);
           }
         }
         else if(P1==3)
@@ -219,12 +233,12 @@ void ConditionO(List l1,int check)
             l1.removeAt(2);
             l1.insert(2,"O");
             check=0;
-            Print(l1,check);
+            Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionO(l1, check);
+            ConditionO(l1, check,count);
           }
         }
         else if(P1==4)
@@ -234,12 +248,12 @@ void ConditionO(List l1,int check)
             l1.removeAt(3);
             l1.insert(3,"O");
             check=0;
-            Print(l1,check);
+           Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionO(l1, check);
+            ConditionO(l1, check,count);
           }
         }
         else if(P1==5)
@@ -249,12 +263,12 @@ void ConditionO(List l1,int check)
             l1.removeAt(4);
             l1.insert(4,"O");
             check=0;
-            Print(l1,check);
+            Print(l1, check,count);
            }
           else
           {
             print("You already add : ");
-            ConditionO(l1, check);
+            ConditionO(l1, check,count);
           }
         }
         else if(P1==6)
@@ -264,12 +278,12 @@ void ConditionO(List l1,int check)
             l1.removeAt(5);
             l1.insert(5,"O");
             check=0;
-            Print(l1,check);
+            Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionO(l1, check);
+            ConditionO(l1, check,count);
           }
         }
         else if(P1==7)
@@ -279,12 +293,12 @@ void ConditionO(List l1,int check)
             l1.removeAt(6);
             l1.insert(6,"O");
             check=0;
-            Print(l1,check);
+            Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionO(l1, check);
+            ConditionO(l1, check,count);
           }
         }
         else if(P1==8)
@@ -294,12 +308,12 @@ void ConditionO(List l1,int check)
             l1.removeAt(7);
             l1.insert(7,"O");
             check=0;
-            Print(l1,check);
+            Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionO(l1, check);
+            ConditionO(l1, check,count);
           }
         }
         else if(P1==9)
@@ -309,12 +323,13 @@ void ConditionO(List l1,int check)
             l1.removeAt(8);
             l1.insert(8,"O");
             check=0;
-            Print(l1,check);
+           Print(l1, check,count);
           }
           else
           {
             print("You already add : ");
-            ConditionO(l1, check);
+            ConditionO(l1, check,count);
           }
         }
+  }
 }
