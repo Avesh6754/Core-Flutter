@@ -1,0 +1,16 @@
+import 'dart:io';
+
+void main()
+{
+  stdout.write("Enter the value of a : ");
+  int a=int.parse(stdin.readLineSync()!);
+  //  stdout.write("Enter the value of b : ");
+  // int b=int.parse(stdin.readLineSync()!);
+  int sum=1;
+  for(int i=1;i<=3;i++)
+  {
+    sum*=a;
+    
+  }
+  print(sum);
+}
