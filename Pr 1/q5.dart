@@ -38,7 +38,7 @@ void main()
     break;
     case 5:SumofAntidiagonal(l1,n);
     break;
-    default:stdout.write("Enter valid input from 1 to 5 and 0 for exit \n");
+    default:stdout.write("Enter valid input \n");
   }
   }while(c!=0);
 
