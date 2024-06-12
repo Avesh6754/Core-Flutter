@@ -15,6 +15,7 @@ void main()
     print("  ");
   }
   int c ;
+//(0,2),(1,1),(2,0)
   do
   {
 
@@ -121,11 +122,11 @@ void SumofDiagonal(List l1,int n)
 }
 void SumofAntidiagonal(List l1,int n)
 {
-  dynamic sum=0,row=n-1,temp=0;
+  dynamic sum=0,col=n-1,temp=0;
   for(int i=0;i<n;i++)
   {
-    sum+=l1[i][row];
-    row--;
+    sum+=l1[i][col];
+    col--;
   }
   stdout.write("\nSum of Antidiagonal : $sum");
 }
