@@ -8,16 +8,16 @@ class Train{
 
         void set()
         {
-          stdout.write("enter the deatil of Train : \n");
+          stdout.write("\n\nenter the deatil of Train : \n");
           stdout.write("enter the Tain Number : ");
           _TainNumber=int.parse(stdin.readLineSync()!);
-          stdout.write("enter the Train name : \n");
+          stdout.write("enter the Train name : ");
           _Train_name=stdin.readLineSync()!;
-          stdout.write("enter the Designation : \n");
+          stdout.write("enter the Designation : ");
           _Designation=stdin.readLineSync()!;
-          stdout.write("enter the Source : \n");
+          stdout.write("enter the Source : ");
           _Source=stdin.readLineSync()!;
-          stdout.write("enter the Train_time : \n");
+          stdout.write("enter the Train_time : ");
           _Train_time=stdin.readLineSync()!;
           
         }
@@ -35,7 +35,7 @@ class Train{
           stdout.write("1 for All train Records : \n");
           stdout.write("2 for Enter train number to find specfic train : \n");
           stdout.write("0 for Exit : \n");
-          stdout.write("Enter your choice : \n");
+          stdout.write("Enter your choice : ");
           _n=int.parse(stdin.readLineSync()!);
         }
 
@@ -44,17 +44,13 @@ void main()
 {
   List <Train> E1=[];
   Train s1=Train();
-  for(int i=0;i<2;i++)
+  for(int i=0;i<3;i++)
   {
       Train s1=Train();
       s1.set();
       E1.add(s1);
   }
-  // for(int i=0;i<3;i++)
-  // {
-  //   E1[i].get();
-  // }
-
+ 
  do
  {
     for(int i=0;i<E1.length;i++)
@@ -80,11 +76,17 @@ void main()
             {
               E1[i].get();
               break;
+              x=0;
             }
             
         }
+        if(x!=0)
+        {
+          print("\nTrain not found\n");
+        }
+       
         break;
-        case 0:print("you exit : ")
+        case 0:print("you exit : ");
        
     }
 
