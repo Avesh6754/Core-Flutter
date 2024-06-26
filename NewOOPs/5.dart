@@ -1,7 +1,7 @@
 import 'dart:io';
 double Sum([int x=0,int y=0,int z=0,int a=0,int b=0])
  {
-      double sum=((x+y+z+a+b)/5)*100;
+      double sum=((x+y+z+a+b)/500)*100;
     return sum;
  }
 void main()
@@ -16,5 +16,5 @@ void main()
   int a=int.parse(stdin.readLineSync()!);
   stdout.write("enter the mark of Physic : ");
   int b=int.parse(stdin.readLineSync()!);
-  print(Sum(x,y,z,a,b));
+  print("${Sum(x,y,z,a,b)} %");
 }
