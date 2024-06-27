@@ -79,9 +79,9 @@ class Supermarket{
           password=stdin.readLineSync()!;
           if(username=="Avesh" && password=="8090")
           {
-
+            print("Login successfull : ");
             return check=1;
-            print("login Successfull: ");
+            
           }
           else
           {
