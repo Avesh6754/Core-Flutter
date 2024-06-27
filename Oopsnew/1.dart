@@ -1,29 +1,7 @@
 
 import 'dart:io';
+import 'new.dart';
 
-class Employee{
- late int id;
- late double salary;
- late String Name,Designation;
-
-        void Set()
-        {
-          stdout.write("enter the deatil of Employee : \n");
-          stdout.write("enter the Id : \n");
-          id=int.parse(stdin.readLineSync()!);
-          stdout.write("enter the Name : \n");
-          Name=stdin.readLineSync()!;
-          stdout.write("enter the Designation : \n");
-          Designation=stdin.readLineSync()!;
-          stdout.write("enter the Salary : \n");
-          salary=double.parse(stdin.readLineSync()!);
-
-        }
-        void Get()
-        {
-          print("$id $Name $Designation $salary");
-        }
-}
 void main()
 {
   List <Employee> E1=[];
