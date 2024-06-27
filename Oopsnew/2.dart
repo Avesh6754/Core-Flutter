@@ -1,66 +1,7 @@
 
 import 'dart:io';
+import 'new.dart';
 
-class Supermarket{
- late int _itemNumber,_n,_Quantity,_Tax,_check=0;
- late double _Discount;
- late String _item_name,_password,_username;
-        int Verify()
-        {
-          stdout.write("\nEnter the user name : ");
-          _username=stdin.readLineSync()!;
-          
-          stdout.write("\nEnter the Password : ");
-          _password=stdin.readLineSync()!;
-          if(_username=="Avesh" && _password=="8090")
-          {
-
-            return _check=1;
-            print("login Successfull: ");
-          }
-          else
-          {
-            
-                return _check=0;
-          }
-        }
-
-
-        void Productinput()
-        {
-          stdout.write("enter the deatil of Supermarket product : \n");
-          stdout.write("enter the item Number : ");
-          _itemNumber=int.parse(stdin.readLineSync()!);
-          stdout.write("enter the _Quantity : ");
-          _Quantity=int.parse(stdin.readLineSync()!);
-           stdout.write("enter the _Tax : ");
-          _Tax=int.parse(stdin.readLineSync()!);
-          stdout.write("enter the _Discount : ");
-          _Discount=double.parse(stdin.readLineSync()!);
-          stdout.write("enter the  name of item : ");
-          _item_name=stdin.readLineSync()!;
-          
-        }
-        void Productdeatils()
-        {
-          print("Item Number  : ${_itemNumber}\n");
-          print("name of item   : ${_item_name}\n");
-          print("_Quantity : ${_Quantity}\n");
-          print("_Tax : ${_Tax}\n");
-          print("_Discount : ${_Discount}\n");
-        }
-        void Service()
-        {
-        
-         stdout.write("1 for Search items by its item number  : \n");
-          stdout.write("2 for All Product Records : \n");
-
-          stdout.write("0 for Exit : \n");
-          stdout.write("Enter your choice : \n");
-          _n=int.parse(stdin.readLineSync()!);
-        }
-
-}
 void main()
 {
   List <Supermarket> E1=[];
@@ -82,18 +23,18 @@ void main()
  {
   for(int i=0;i<E1.length;i++)
   {
-     print("Here the item nmber for search : ${ E1[i]._itemNumber}");
+     print("Here the item nmber for search : ${ E1[i].itemNumber}");
   }
     do
     {
       s1.Service();
-      switch(s1._n)
+      switch(s1.n)
       {
         case 1:print("Enter the item number for its details : ");
         int x=int.parse(stdin.readLineSync()!);
         for(int i=0;i<E1.length;i++)
         {
-            if(x==E1[i]._itemNumber)
+            if(x==E1[i].itemNumber)
             {
               E1[i].Productdeatils();
             }
@@ -103,7 +44,7 @@ void main()
         {
             for(int j=i+1;j<E1.length;j++)
             {
-                if(E1[i]._itemNumber!>E1[j]._itemNumber)
+                if(E1[i].itemNumber!>E1[j].itemNumber)
                 {
                   Temp=E1[i];
                   E1[i]=E1[j];
@@ -118,7 +59,7 @@ void main()
       }
     
 
-    }while(s1._n!=0);
+    }while(s1.n!=0);
  }
  else 
  {
