@@ -1,45 +1,7 @@
 
 import 'dart:io';
 
-class Train{
- late int _TainNumber,_n;
- late String _Train_name,_Train_time;
- late String _Source,_Designation;
-
-        void set()
-        {
-          stdout.write("\n\nenter the deatil of Train : \n");
-          stdout.write("enter the Tain Number : ");
-          _TainNumber=int.parse(stdin.readLineSync()!);
-          stdout.write("enter the Train name : ");
-          _Train_name=stdin.readLineSync()!;
-          stdout.write("enter the Designation : ");
-          _Designation=stdin.readLineSync()!;
-          stdout.write("enter the Source : ");
-          _Source=stdin.readLineSync()!;
-          stdout.write("enter the Train_time : ");
-          _Train_time=stdin.readLineSync()!;
-          
-        }
-        void get()
-        {
-          print("Train Number : ${_TainNumber}\n");
-          print("Train name   : ${_Train_name}\n");
-          print("Train_time : ${_Train_time}\n");
-          print("Train Source : ${_Source}\n");
-          print("Train Designation : ${_Designation}\n");
-        }
-        void choice()
-        {
-        
-          stdout.write("1 for All train Records : \n");
-          stdout.write("2 for Enter train number to find specfic train : \n");
-          stdout.write("0 for Exit : \n");
-          stdout.write("Enter your choice : ");
-          _n=int.parse(stdin.readLineSync()!);
-        }
-
-}
+import 'new.dart';
 void main()
 {
   List <Train> E1=[];
@@ -55,11 +17,11 @@ void main()
  {
     for(int i=0;i<E1.length;i++)
     {
-      stdout.write("Train number ${E1[i]._TainNumber} \n");
+      stdout.write("Train number ${E1[i].TainNumber} \n");
     }
 
     s1.choice();
-    switch(s1._n)
+    switch(s1.n)
     {
         case 1:for(int i=0;i<E1.length;i++)
         {
@@ -72,7 +34,7 @@ void main()
         int x=int.parse(stdin.readLineSync()!);
         for(int i=0;i<E1.length;i++)
         {
-            if(x==E1[i]._TainNumber)
+            if(x==E1[i].TainNumber)
             {
               E1[i].get();
               break;
@@ -90,5 +52,5 @@ void main()
        
     }
 
- }while(s1._n!=0);
+ }while(s1.n!=0);
 }
