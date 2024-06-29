@@ -1,6 +1,8 @@
 
 import 'dart:io';
+
 class Employee{
+
  late int id;
  late double salary;
  late String Name,Designation;
