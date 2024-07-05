@@ -137,3 +137,49 @@ List products = [
     'store': 0,
   },
 ];
+
+class Customer {
+  late dynamic cust_id, cust_name, cust_contact, z;
+
+  void customerSignup() {
+    stdout.write("\nEnter the customer Details : \n");
+    stdout.write("Enter the customer Id : ");
+    cust_id = int.parse(stdin.readLineSync()!);
+    stdout.write("Enter the customer Name : ");
+    cust_name = stdin.readLineSync()!;
+    stdout.write("Enter the customer Contact : ");
+    cust_id = double.parse(stdin.readLineSync()!);
+  }
+
+  void customerchoice() {
+    stdout.write("Enter 1 for Electronic Product : \n");
+    stdout.write("Enter 2 for  Dairy/Fruits/Vegetable : \n");
+    stdout.write("Enter 3 for  Bill Generate : \n");
+    stdout.write("\nEnter your choice : \n");
+    z = int.parse(stdin.readLineSync()!);
+  }
+
+  void customeroutput() {
+    print("Customer Id : ${cust_id}");
+    print("Customer Name : ${cust_name}");
+    print("Customer Contact : ${cust_contact}");
+  }
+}
+
+class Product {
+  late dynamic pro_id, pro_name, pro_qty, pro_price;
+
+  Product(
+      {required this.pro_id,
+      required this.pro_name,
+      required this.pro_price,
+      required this.pro_qty});
+
+  factory Product.fromMap(Map m1) {
+    return Product(
+        pro_id: m1['id'],
+        pro_name: m1['name'],
+        pro_price: m1['price'],
+        pro_qty: m1['store']);
+  }
+}
