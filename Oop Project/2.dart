@@ -1,8 +1,5 @@
-
 import 'dart:io';
 
-import 'Customer_details.dart';
-import 'customer_card.dart';
 import 'global.dart';
 
 void main() {
@@ -13,10 +10,8 @@ void main() {
     nowproduct.add(p1);
   }
   for (var data in nowproduct) {
-    print(data.pro_id);
-    print(data.pro_name);
-    print(data.pro_price);
-    print(data.pro_qty);
+    print(
+        " Id : ${data.pro_id}       Name : ${data.pro_name}         Price :${data.pro_price}");
   }
 
   List<Customer> l1 = [];
@@ -29,8 +24,15 @@ void main() {
     l1.add(c1);
   }
 
-  
+  do {
     c1.customerchoice();
-
-    
+    switch (c1.z) {
+      case 1:
+        print("Hello flutter : ");
+        break;
+      case 2:
+        print("Hello Dart  : ");
+        break;
+    }
+  } while (c1.z != 0);
 }
