@@ -54,7 +54,7 @@ void main() {
                 print("Price : ${cust_card[j]['price']}");
               }
             }
-            check = 0;
+            check--;
             c1.Billamount(i, cust_deatils, Product, cust_card);
           }
         }
