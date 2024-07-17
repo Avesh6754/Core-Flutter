@@ -33,6 +33,7 @@ class Customer {
     stdout.write("Enter 1 for Add number of customer  : \n");
     stdout.write("Enter 2 for find the customer through id   : \n");
     stdout.write("Enter 3 for display all customer  deatils: \n");
+    stdout.write("Enter 4 for Exit : \n");
     stdout.write("\nEnter your choice : \n");
     z = int.parse(stdin.readLineSync()!);
   }
@@ -87,3 +88,4 @@ class Customer {
     print("Final amoount $total ");
   }
 }
+
