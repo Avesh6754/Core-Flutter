@@ -1,13 +1,49 @@
 import 'dart:io';
-import 'globalfile.dart';
-
 void main() {
   Customer c1 = Customer();
   int number = 0, count = 1;
   List cust_card = [];
-  List cust_deatils = [];
+  List<Customer> cust_deatils = [];
+  List Product = [
+    {
+      'name': "Curd",
+      'id': 0,
+      'quantity': 0,
+      'price': 150,
+    },
+    {
+      'name': "Tea",
+      'id': 0,
+      'quantity': 0,
+      'price': 780,
+    },
+    {
+      'name': "Turmric",
+      'id': 0,
+      'quantity': 0,
+      'price': 100,
+    },
+    {
+      'name': "Cokkie",
+      'id': 0,
+      'quantity': 0,
+      'price': 120,
+    },
+    {
+      'name': "coffee",
+      'id': 0,
+      'quantity': 0,
+      'price': 500,
+    },
+    {
+      'name': "SoftDrink",
+      'id': 0,
+      'quantity': 0,
+      'price': 40,
+    },
+  ];
 
- do {
+  do {
     c1.customerchoice();
     switch (c1.z) {
       case 1:
@@ -20,12 +56,11 @@ void main() {
         do {
           if (count == 1) {
             count--;
-            c1.CustomerProductoption();
+            c1.CustomerProductoption(Product);
             if (c1.quantity != 0) {
               Map AddtoCard = {
                 'name': Product[c1.product - 1]['name'],
                 'id': c1.cust_id,
-                // 'pro_id': Product[c1.product - 1]['pro_id'],
                 'quantity': c1.quantity,
                 'price': Product[c1.product - 1]['price']
               };
@@ -37,6 +72,7 @@ void main() {
           }
 
           stdout.write("Enter 1 for you want to add another product : ");
+          stdout.write("Enter 0 for menu : ");
           int n = int.parse(stdin.readLineSync()!);
           count = n;
         } while (true);
@@ -47,12 +83,11 @@ void main() {
         int check = 1;
         for (int i = 0; i < cust_deatils.length; i++) {
           if (search == cust_deatils[i].cust_id) {
-            cust_deatils[i].customeroutput();
+            cust_deatils[i].getter(i);
+            print("Customer details ${i + 1}");
             for (int j = 0; j < cust_card.length; j++) {
               if (cust_card[j]['id'] == cust_deatils[i].cust_id) {
                 print("Name : ${cust_card[j]['name']}");
-                print("id : ${cust_card[j]['id']}");
-                // print("pro_id : ${cust_card[j]['pro_id']}");
                 print("Quantity : ${cust_card[j]['quantity']}");
                 print("Price : ${cust_card[j]['price']}");
               }
@@ -68,14 +103,11 @@ void main() {
         break;
       case 3:
         for (int i = 0; i < cust_deatils.length; i++) {
-          cust_deatils[i].customeroutput();
+          cust_deatils[i].getter(i);
           for (int j = 0; j < cust_card.length; j++) {
             if (cust_card[j]['id'] == cust_deatils[i].cust_id) {
-              print("Name : ${cust_card[j]['name']}");
-              print("id : ${cust_card[j]['id']}");
-              print("pro_id : ${cust_card[j]['pro_id']}");
-              print("Quantity : ${cust_card[j]['quantity']}");
-              print("Price : ${cust_card[j]['price']}");
+              print(
+                  "Name : ${cust_card[j]['name']}, Quantity : ${cust_card[j]['quantity']}, Price : ${cust_card[j]['price']}");
             }
           }
 
