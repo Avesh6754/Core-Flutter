@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'global.dart';
 void main() {
   Customer c1 = Customer();
   int number = 0, count = 1;
