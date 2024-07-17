@@ -11,13 +11,13 @@ void main() {
     c1.customerchoice();
     switch (c1.z) {
       case 1:
-        print("Enter the customer${number} Details : ");
+        print("Enter the customer ${number} Details : ");
         Customer c1 = Customer();
         c1.customerSignup();
         cust_deatils.add(c1);
         number++;
         do {
-          if (count == 1) {
+          if (count != 0) {
             c1.CustomerProductoption();
             if (c1.quantity != 0) {
               Map AddtoCard = {
@@ -36,6 +36,7 @@ void main() {
             int n = int.parse(stdin.readLineSync()!);
             count = n;
           }
+          c1.customerchoice();
         } while (true);
         break;
       case 2:
@@ -63,7 +64,7 @@ void main() {
         }
 
         break;
-      case 3:
+      case 3:stdout.write("Customer details : ");
         for (int i = 0; i < cust_deatils.length; i++) {
           cust_deatils[i].customeroutput();
           for (int j = 0; j < cust_card.length; j++) {
