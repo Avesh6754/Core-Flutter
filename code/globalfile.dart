@@ -1,23 +1,12 @@
 import 'dart:io';
-
-List Product = [
-  {'name': "Curd", 'id': 0, 'quantity': 0, 'price': 150, 'pro_id': 6544},
-  {'name': "Tea", 'id': 0, 'quantity': 0, 'price': 780, 'pro_id': 2446},
-  {'name': "Turmric", 'id': 0, 'quantity': 0, 'price': 100, 'pro_id': 4855},
-  {'name': "Cokkie", 'id': 0, 'quantity': 0, 'price': 120, 'pro_id': 4841},
-  {'name': "coffee", 'id': 0, 'quantity': 0, 'price': 500, 'pro_id': 4584},
-  {'name': "SoftDrink", 'id': 0, 'quantity': 0, 'price': 40, 'pro_id': 6451},
-];
-
 class Customer {
-  late dynamic cust_id,
-      cust_name,
-      cust_contact,
-      z,
-      product,
-      quantity,
-      total = 0,
-      discount = 0;
+  late int cust_id;
+  late String cust_name;
+  late double cust_contact;
+  late int z;
+  late int product;
+  late int quantity;
+  late dynamic total = 0, discount = 0;
 
   void customerSignup() {
     stdout.write("\nEnter the customer Details : \n");
@@ -26,7 +15,7 @@ class Customer {
     stdout.write("Enter the customer Name : ");
     cust_name = stdin.readLineSync()!;
     stdout.write("Enter the customer Contact : ");
-    cust_id = double.parse(stdin.readLineSync()!);
+    cust_contact = double.parse(stdin.readLineSync()!);
   }
 
   void customerchoice() {
@@ -38,13 +27,14 @@ class Customer {
     z = int.parse(stdin.readLineSync()!);
   }
 
-  void customeroutput() {
+  void getter(int i) {
+    print("Customer details ${i + 1}");
     print("Customer Id : ${cust_id}");
     print("Customer Name : ${cust_name}");
     print("Customer Contact : ${cust_contact}");
   }
 
-  void CustomerProductoption() {
+  void CustomerProductoption(List Product) {
     print("Enter 1 for  ${Product[0]['name']},${Product[0]['price']}:");
     print("Enter 2 for  ${Product[1]['name']},${Product[1]['price']}:");
     print("Enter 3 for  ${Product[2]['name']},${Product[2]['price']}:");
@@ -59,7 +49,7 @@ class Customer {
     } else {
       print("\n");
       print("Please Enter valid input : ");
-      CustomerProductoption();
+      CustomerProductoption(Product);
     }
   }
 
@@ -88,4 +78,3 @@ class Customer {
     print("Final amoount $total ");
   }
 }
-
