@@ -14,7 +14,7 @@ class Customer{
   }
 
  void customeroutput(int i){
-    print("Here the ${i + 1} customer detail are Below.");
+    print("Here the ${i + 1} customer detail.");
     print("Customer ID     : $cust_id");
     print("Customer Name   : $cust_name");
     print("Customer Contact: $cust_contact");
@@ -22,7 +22,7 @@ class Customer{
 
   void customerchoice() {
     print("Enter 1 : Add the number of Customer");
-    print("Enter 2: find the customer details through Customer By ID");
+    print("Enter 2: find the customer details through its id");
     print("Enter 3: Display all Customer");
     print("Enter 4 : For Exit");
     stdout.write(">> Enter Your Choice : ");
