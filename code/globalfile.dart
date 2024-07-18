@@ -52,9 +52,9 @@ class Customer{
     dynamic  total = 0, Discount = 0;
     for (int j = 0; j < custcart.length ; j++) {
       if (custcart[j]['id'] == custdetail[i].cust_id) {
-        int temp1 = custcart[j]['price'];
-        int temp2 = custcart[j]['quantity'];
-        total += (temp1 * temp2);
+        int temp = custcart[j]['price'];
+        int temp1 = custcart[j]['quantity'];
+        total += (temp * temp1);
       }
     }
     late double d = 0;
