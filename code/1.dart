@@ -1,121 +1,111 @@
 import 'dart:io';
 import 'global.dart';
-void main() {
-  Customer c1 = Customer();
-  int number = 0, count = 1;
-  List cust_card = [];
-  List<Customer> cust_deatils = [];
-  List Product = [
-    {
-      'name': "Curd",
-      'id': 0,
-      'quantity': 0,
-      'price': 150,
-    },
-    {
-      'name': "Tea",
-      'id': 0,
-      'quantity': 0,
-      'price': 780,
-    },
-    {
-      'name': "Turmric",
-      'id': 0,
-      'quantity': 0,
-      'price': 100,
-    },
-    {
-      'name': "Cokkie",
-      'id': 0,
-      'quantity': 0,
-      'price': 120,
-    },
-    {
-      'name': "coffee",
-      'id': 0,
-      'quantity': 0,
-      'price': 500,
-    },
-    {
-      'name': "SoftDrink",
-      'id': 0,
-      'quantity': 0,
-      'price': 40,
-    },
+List productlist = [
+    {'name': "Sugar", 'id': 0, 'quantity': 0, 'price': 250,'proid':5663},
+    {'name': "Water", 'id': 0, 'quantity': 0, 'price': 180,'proid':7373},
+    {'name': "Tea", 'id': 0, 'quantity': 0, 'price': 300,'proid':6637},
+    {'name': "Shop", 'id': 0, 'quantity': 0, 'price': 180,'proid':9928},
+    {'name': "Book", 'id': 0, 'quantity': 0, 'price': 200,'proid':6543},
+    {'name': "Drink", 'id': 0, 'quantity': 0, 'price': 400,'proid':3566},
   ];
+
+void main() {
+  Customer c1= Customer();
+  int count = 1;
+  int ck, check;
+
+  List custdetail = [];
+  List custcart = [];
+  
 
   do {
     c1.customerchoice();
+
     switch (c1.z) {
       case 1:
-        count = 1;
-        print("Enter the customer ${number} Details : ");
-        Customer c1 = Customer();
-        c1.customerSignup();
-        cust_deatils.add(c1);
-        number++;
+        print("\nEnter the number of Customer $count Details :");
+        Customer c1= Customer();
+        c1.customerinput();
+        custdetail.add(c1);
+        count++;
+        check = 1;
         do {
-          if (count == 1) {
-            count--;
-            c1.CustomerProductoption(Product);
+          if (check == 1) {
+            c1.customerProductoption();
             if (c1.quantity != 0) {
-              Map AddtoCard = {
-                'name': Product[c1.product - 1]['name'],
+              Map addtoCard = {
+                'name': productlist[c1.product - 1]['name'],
                 'id': c1.cust_id,
                 'quantity': c1.quantity,
-                'price': Product[c1.product - 1]['price']
+                'proid': productlist[c1.product - 1]['proid'],
+             
+                'price': productlist[c1.product - 1]['price']
               };
-              cust_card.add(AddtoCard);
+              custcart.add(addtoCard);
             }
           } else {
-            print("Thank you for visit : ");
+            print("\nThank You....\n");
             break;
           }
-
-          stdout.write("Enter 1 for you want to add another product : ");
-          stdout.write("Enter 0 for menu : ");
-          int n = int.parse(stdin.readLineSync()!);
-          count = n;
+          stdout.write("\nDo You want to add Another Products press 1 \n: ");
+          stdout.write("\npress 0 for main menu ");
+          int ck = int.parse(stdin.readLineSync()!);
+          check = ck;
         } while (true);
         break;
-      case 2:
-        stdout.write("Enter the customer id to find customer details : ");
-        int search = int.parse(stdin.readLineSync()!);
-        int check = 1;
-        for (int i = 0; i < cust_deatils.length; i++) {
-          if (search == cust_deatils[i].cust_id) {
-            cust_deatils[i].getter(i);
-            print("Customer details ${i + 1}");
-            for (int j = 0; j < cust_card.length; j++) {
-              if (cust_card[j]['id'] == cust_deatils[i].cust_id) {
-                print("Name : ${cust_card[j]['name']}");
-                print("Quantity : ${cust_card[j]['quantity']}");
-                print("Price : ${cust_card[j]['price']}");
-              }
-            }
-            check--;
-            c1.Billamount(i, cust_deatils, Product, cust_card);
-          }
-        }
-        if (check == 1) {
-          print("Customer not found ");
-        }
 
-        break;
       case 3:
-        for (int i = 0; i < cust_deatils.length; i++) {
-          cust_deatils[i].getter(i);
-          for (int j = 0; j < cust_card.length; j++) {
-            if (cust_card[j]['id'] == cust_deatils[i].cust_id) {
+        for (int i = 0; i < custdetail.length; i++) {
+          custdetail[i].customeroutput(i);
+          print("\n========================================");
+          print("\n Customer ${i + 1} cart Details ");
+          for (int j = 0; j < custcart.length; j++) {
+            if (custcart[j]['id'] == custdetail[i].cust_id) {
               print(
-                  "Name : ${cust_card[j]['name']}, Quantity : ${cust_card[j]['quantity']}, Price : ${cust_card[j]['price']}");
+                "\nProduct id  : ${custcart[j]['proid']}, \nName : ${custcart[j]['name']},\nQuantity  : ${custcart[j]['quantity']},\n Price : ${custcart[j]['price']}");
             }
           }
-
-          c1.Billamount(i, cust_deatils, Product, cust_card);
-          break;
+          print("");
+          c1.billSystem( i, custcart, custdetail, productlist);
         }
+        
+        break;
+
+      case 2:
+        bool data = false;
+        stdout.write("\nEnter Customer ID Number : ");
+        int search = int.parse(stdin.readLineSync()!);
+       
+        for (int i = 0; i < custdetail.length; i++) {
+          if (search == custdetail[i].cust_id) {
+            custdetail[i].customeroutput(i);
+            print("\n===========================================");
+            print("\n Customer ${i + 1} cart Details ");
+            for (int j = 0; j < custcart.length; j++) {
+              if (custcart[j]['id'] == custdetail[i].cust_id) {
+                print(
+                     "\nProduct id  : ${custcart[j]['proid']},\nName : ${custcart[j]['name']}, \nQuantity : ${custcart[j]['quantity']},\n Price : ${custcart[j]['price']}");
+            }
+            }
+            print("");
+            data = true;
+            c1.billSystem( i, custcart, custdetail, productlist);
+          }
+        }
+       
+        if (data == false) {
+          print("Customer not found..!!");
+        }
+        break;
+
+      case 4:
+        
+        print("Thank you for Visit..");
+       
+        break;
+
+      default:
+        print("\nInvalid Choice  1,2,3,4..!!\n");
     }
   } while (c1.z != 4);
-  print("Exit from App  : ");
 }
