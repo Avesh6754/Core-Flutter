@@ -5,6 +5,10 @@
 ## What is DataType ?
 ###  The variables are used to store values and reserve the memory location. The data-type specifies what type of value will be stored by the variable.
 
+
+
+
+
 # Types of DataType
 ## Their are two types of DataType
 ### 1. Primitive DataType  
