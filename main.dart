@@ -1,8 +1,29 @@
-class ProductData {
-  List<Product> product;
+import 'dart:io';
+
+class ProductList {
+  List<Products> product;
+  int total, skip, limit;
+
+  ProductList(
+      {required this.product,
+      required this.limit,
+      required this.skip,
+      required this.total});
+
+  factory ProductList.fromMap(Map m1) {
+    return ProductList(
+        product:
+            (m1['products'] as List).map((e) => Products.fromMap(e)).toList(),
+        limit: m1['limit'],
+        skip: m1['skip'],
+        total: m1['total']);
+  }
+}
+
+class Products {
   double price, discountPercentage, rating;
   int id, stock, weight, minimumOrderQuantity;
-  String title,
+  String? title,
       description,
       category,
       brand,
@@ -17,7 +38,7 @@ class ProductData {
   List<String> tags;
   List<Reviews> reviews;
   List<String> images;
-  ProductData(
+  Products(
       {required this.availabilityStatus,
       required this.brand,
       required this.category,
@@ -29,7 +50,6 @@ class ProductData {
       required this.meta,
       required this.minimumOrderQuantity,
       required this.price,
-      required this.product,
       required this.rating,
       required this.returnPolicy,
       required this.reviews,
@@ -42,10 +62,32 @@ class ProductData {
       required this.warrantyInformation,
       required this.weight});
 
-      factory ProductData.fromMap(Map m1)
-      {
-        return ProductData(availabilityStatus:m1['availabilityStatus'], brand: m1['brand'], category: m1['category'], description:m1[' description'], dimensions: Dimensions.fromMap(m1['dimensions']), discountPercentage: m1['discountPercentage'], id: m1['id'], images:List.from(m1[' images']), meta: Meta.fromMap(m1['meta']), minimumOrderQuantity: m1['minimumOrderQuantity'], price: m1['price'], product: product, rating: rating, returnPolicy: returnPolicy, reviews: reviews, shippingInformation: shippingInformation, sku: sku, stock: stock, tags: tags, thumbnail: thumbnail, title: title, warrantyInformation: warrantyInformation, weight: weight)
-      }
+  factory Products.fromMap(Map m1) {
+    return Products(
+        availabilityStatus: m1['availabilityStatus'],
+        brand: m1['brand'],
+        category: m1['category'],
+        description: m1['description'],
+        dimensions: Dimensions.fromMap(m1['dimensions']),
+        discountPercentage: m1['discountPercentage'],
+        id: m1['id'],
+        images: List.from(m1['images']),
+        meta: Meta.fromMap(m1['meta']),
+        minimumOrderQuantity: m1['minimumOrderQuantity'],
+        price: m1['price'],
+        rating: m1['rating'],
+        returnPolicy: m1['returnPolicy'],
+        reviews:
+            (m1['reviews'] as List).map((e) => Reviews.fromMap(e)).toList(),
+        shippingInformation: m1['shippingInformation'],
+        sku: m1['sku'],
+        stock: m1['stock'],
+        tags: List.from(m1['tags']),
+        thumbnail: m1['̥thumbnail'],
+        title: m1['title'],
+        warrantyInformation: m1['warrantyInformation'],
+        weight: m1['weight']);
+  }
 }
 
 class Dimensions {
